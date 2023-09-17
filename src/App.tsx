@@ -16,18 +16,18 @@ export function App() {
   const [search, setSearch] = useState<string>('');
 
   if (loading) {
-    return <div className='w-full bg-orange-400 text-white h-screen font-bold items-center flex justify-center'>Carregando...</div>;
+    return <div className='w-full bg-purple-400 text-white h-screen font-bold items-center flex justify-center'>Carregando...</div>;
   }
 
   if (error) {
-    return <div className='w-full bg-orange-400 text-white h-screen font-bold items-center flex justify-center'>Ocorreu um erro: {error.message}</div>;
+    return <div className='w-full bg-purple-400 text-white h-screen font-bold items-center flex justify-center'>Ocorreu um erro: {error.message}</div>;
   }
 
   const filterRepositories: Repository[] = search.length > 0 ?
     repositories.filter((repo: Repository) => repo.name.includes(search)) : repositories;
 
   return (
-    <div className="bg-orange-500 min-h-screen">
+    <div className="bg-purple-500 min-h-screen">
       <div className="container mx-auto p-4">
         <h1 className="text-3xl font-bold mb-4 text-white">GitHub Repositories</h1>
 
@@ -43,7 +43,7 @@ export function App() {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filterRepositories.map((repo: Repository) => (
-            <li key={repo.name} className="bg-white shadow-md p-4 rounded-md">
+            <li key={repo.name} className="bg-white shadow-md p-4 rounded-md duration-100 hover:scale-105">
               <h2 className="text-xl font-semibold">{repo.name}</h2>
               <p className="text-gray-600">{repo.description}</p>
             </li>
